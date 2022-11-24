@@ -1,0 +1,24 @@
+name: x5_webview
+description: A Webview Flutter plugin of Tencent X5 Kernel,Improving WebView browsing experience,Support Android Platform Only.
+version: 0.3.2
+#author: caojinxing <793710663@qq.com>
+homepage: https://github.com/VenusCao/x5_webview_flutter
+
+environment:
+  sdk: ">=2.16.0 <3.0.0"
+  flutter: ">=2.8.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+flutter:
+  plugin:
+    platforms:
+      android:
+        package: com.cjx.x5_webview
+        pluginClass: X5WebViewPlugin

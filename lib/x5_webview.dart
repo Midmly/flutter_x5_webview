@@ -117,11 +117,11 @@ class X5WebViewController {
   X5WebViewController._(
     int id,
     this._widget,
-  ) : _channel = MethodChannel('com.cjx/x5WebView_$id') {
+  ) : _channel = OptionalMethodChannel('com.cjx/x5WebView_$id') {
     _channel.setMethodCallHandler(_onMethodCall);
   }
 
-  final MethodChannel _channel;
+  final OptionalMethodChannel _channel;
 
   Future<void> loadUrl(String url, {Map<String, String>? headers}) async {
     return await _channel.invokeMethod('loadUrl', {
@@ -129,6 +129,10 @@ class X5WebViewController {
       'headers': headers,
     });
   }
+  Future<void> destroyX5() async {
+    return await _channel.invokeMethod('destroyX5');
+  }
+
   Future<void> clearCache(bool arg) async {
     return await _channel.invokeMethod('clearCache', arg);
   }

@@ -185,6 +185,18 @@ class X5WebView(private val context: Context?, private val id: Int, private val 
                     result.success(true)
                 }
             }
+            "destroyX5" -> {
+                if (webView != null) {
+                    webView.stopLoading();
+                    webView.removeAllViewsInLayout();
+                    webView.removeAllViews();
+                    webView.setWebViewClient(null);
+//                        CookieSyncManager.getInstance().stopSync();
+                    webView.destroy();
+//                    webView = null;
+                }
+                result.success(null)
+            }
 
             else -> {
                 result.notImplemented()

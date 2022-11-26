@@ -76,7 +76,6 @@ class X5WebViewActivity : Activity() {
                 finish()
             }
         }
-
         return super.onOptionsItemSelected(item)
     }
 

@@ -34,7 +34,7 @@
         <activity android:name=".X5WebViewActivity"
             android:configChanges="orientation|screenSize|keyboardHidden"
             android:windowSoftInputMode="stateHidden|adjustResize"
-            ></activity>
+            />
         <activity
             android:name="com.tencent.smtt.sdk.VideoActivity"
             android:configChanges="orientation|screenSize|keyboardHidden"

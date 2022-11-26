@@ -122,7 +122,7 @@ class X5WebView(private val context: Context?, private val id: Int, private val 
     override fun onMethodCall(call: MethodCall, result: MethodChannel.Result) {
         when (call.method) {
             "loadUrl" -> {
-                Log.e("cjxaaloadurl",call.arguments.toString())
+                Log.d("cjxaaloadurl",call.arguments.toString())
                 val arg = call.arguments as Map<String, Any>
                 val url = arg["url"].toString()
                 val headers = arg["headers"] as? Map<String, String>

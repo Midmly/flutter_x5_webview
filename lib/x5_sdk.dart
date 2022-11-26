@@ -147,12 +147,16 @@ class X5Sdk {
         _channel.setMethodCallHandler((call) async {
           try {
             if (call.method == "onUrlLoad") {
-              print("onUrlLoad----${call.arguments}");
+              if (kDebugMode) {
+                print("onUrlLoad----${call.arguments}");
+              }
               Map arg = call.arguments;
               callback(arg["url"], Map<String, String>.from(arg["headers"]));
             }
           } catch (e) {
-            print(e);
+            if (kDebugMode) {
+              print(e);
+            }
           }
         });
       }

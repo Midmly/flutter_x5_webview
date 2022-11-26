@@ -76,7 +76,7 @@ class X5WebViewPlugin : MethodCallHandler, FlutterPlugin, ActivityAware {
                 QbSdk.initTbsSettings(map)
                 QbSdk.initX5Environment(mContext?.applicationContext, object : QbSdk.PreInitCallback {
                     override fun onCoreInitFinished() {
-                        Log.e("X5Sdk","onCoreInitFinished")
+                        Log.d("X5Sdk","onCoreInitFinished")
                     }
 
                     override fun onViewInitFinished(p0: Boolean) {
@@ -196,9 +196,9 @@ class X5WebViewPlugin : MethodCallHandler, FlutterPlugin, ActivityAware {
 
     //新方式集成插件
     override fun onAttachedToEngine(binding: FlutterPlugin.FlutterPluginBinding) {
-        Log.e("onAttachedToEngine", "onAttachedToEngine")
+        Log.d("onAttachedToEngine", "onAttachedToEngine")
         if (mActivity == null) {
-            Log.e("onAttachedToEngine", "mActivity==null")
+            Log.d("onAttachedToEngine", "mActivity==null")
             mFlutterPluginBinding = binding
             return
         }
@@ -212,7 +212,7 @@ class X5WebViewPlugin : MethodCallHandler, FlutterPlugin, ActivityAware {
     }
 
     override fun onDetachedFromEngine(binding: FlutterPlugin.FlutterPluginBinding) {
-        Log.e("onDetachedFromEngine", "onDetachedFromEngine")
+        Log.d("onDetachedFromEngine", "onDetachedFromEngine")
         QbSdk.setTbsListener(null)
         mFlutterPluginBinding = null
         methodChannel?.setMethodCallHandler(null)
@@ -220,16 +220,16 @@ class X5WebViewPlugin : MethodCallHandler, FlutterPlugin, ActivityAware {
     }
 
     override fun onDetachedFromActivity() {
-        Log.e("onDetachedFromActivity", "onDetachedFromActivity")
+        Log.d("onDetachedFromActivity", "onDetachedFromActivity")
     }
 
     override fun onReattachedToActivityForConfigChanges(binding: ActivityPluginBinding) {
     }
 
     override fun onAttachedToActivity(binding: ActivityPluginBinding) {
-        Log.e("onAttachedToActivity", "onAttachedToActivity")
+        Log.d("onAttachedToActivity", "onAttachedToActivity")
         if (mFlutterPluginBinding == null) {
-            Log.e("onAttachedToActivity", "mFlutterPluginBinding==null")
+            Log.d("onAttachedToActivity", "mFlutterPluginBinding==null")
             this.mActivity = binding.activity
             return
         }

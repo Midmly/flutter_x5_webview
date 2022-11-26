@@ -39,12 +39,12 @@ class X5WebViewActivity : Activity() {
             val isUrlIntercept=intent.getBooleanExtra("isUrlIntercept",false)
             webViewClient = object : WebViewClient() {
                 override fun shouldOverrideUrlLoading(view: WebView, url: String?): Boolean {
-                    Log.e("X5WebViewActivity", "openurl:$url")
+                    Log.d("X5WebViewActivity", "openurl:$url")
                     if(isUrlIntercept){
                         val map=HashMap<String,Any>()
                         map["url"] = url?:""
                         map["headers"] = HashMap<String,String>()
-                        Log.e("X5WebViewActivity", "X5WebViewPlugin.methodChannel:${X5WebViewPlugin.methodChannel==null}")
+                        Log.d("X5WebViewActivity", "X5WebViewPlugin.methodChannel:${X5WebViewPlugin.methodChannel==null}")
                         X5WebViewPlugin.methodChannel?.invokeMethod("onUrlLoad",map)
                         return isUrlIntercept
                     }
@@ -54,12 +54,12 @@ class X5WebViewActivity : Activity() {
                 }
 
                 override fun shouldOverrideUrlLoading(view: WebView, request: WebResourceRequest?): Boolean {
-                    Log.e("X5WebViewActivity", "openurl2:" + request?.url.toString())
+                    Log.d("X5WebViewActivity", "openurl2:" + request?.url.toString())
                     if(isUrlIntercept){
                         val map=HashMap<String,Any>()
                         map["url"] = request?.url.toString()
                         map["headers"] = request?.requestHeaders?:HashMap<String,String>()
-                        Log.e("X5WebViewActivity", "X5WebViewPlugin.methodChannel:${X5WebViewPlugin.methodChannel==null}")
+                        Log.d("X5WebViewActivity", "X5WebViewPlugin.methodChannel:${X5WebViewPlugin.methodChannel==null}")
                         X5WebViewPlugin.methodChannel?.invokeMethod("onUrlLoad",map)
                         return isUrlIntercept
                     }
